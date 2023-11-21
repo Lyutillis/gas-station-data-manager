@@ -38,7 +38,6 @@
                     <th>Fuel</th>
                     <th>Price</th>
                     <th>Amount</th>
-                    <th>Discount</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -50,7 +49,6 @@
                     <td>{{ transaction.fuel.name }}</td>
                     <td>{{ transaction.fuel.price }}</td>
                     <td>{{ transaction.amount }}</td>
-                    <td>{{ transaction.discounted }}</td>
                     <td>{{ transaction.total }}</td>
                 </tr>
               {% endfor %}

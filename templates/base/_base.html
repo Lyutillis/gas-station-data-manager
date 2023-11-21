@@ -15,14 +15,13 @@
 <body>
 
     <header>
-        <h1>Website Title</h1>
+        <h1>Tur D Petrol</h1>
     </header>
     
       <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="{% url 'stations:station-list' %}">Stations</a>
+        <a href="{% url 'stations:fuel-list' %}">Fuel</a>
+        <a href="#">Managers</a>
       </nav>
     
       <main>
