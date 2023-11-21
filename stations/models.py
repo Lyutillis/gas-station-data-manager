@@ -18,7 +18,7 @@ class Fuel(models.Model):
 
 class Station(models.Model):
     address = models.CharField(max_length=255, null=False)
-    manager = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name="stations")
+    managers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="stations")
     image = models.ImageField(upload_to = image_upload_handler, null=True, blank=True)
 
 
