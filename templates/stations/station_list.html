@@ -1,0 +1,39 @@
+{% extends "base/_base.html" %}
+
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock links %}
+
+{% block content %}
+{% for station in station_list %}
+    {% if forloop.first %}
+    <div class="row">
+    {% endif %}
+    <div class="col-6">
+      <div class="underglow card mb-3">
+          <a href="{% url 'stations:station-detail' station.pk %}" style="text-decoration:None;">
+            <span class="link"></span>
+          </a>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/static{{ station.image.url }}" style="height: 180px; width: 180px;" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ station.address }}</h5>
+                <p class="card-text">{{ station.manager }}</p>
+                <p class="card-text"><small class="text-muted">{% if station.transactions.first %}Last Transaction:{{ station.transactions.first.date }}{% endif %}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:2 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+  {% endfor %}
+
+  {% include "base/include/_pagination.html" %}
+
+
+{% endblock content %}
