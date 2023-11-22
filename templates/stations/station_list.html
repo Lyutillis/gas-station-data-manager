@@ -1,4 +1,4 @@
-{% extends "base/_base.html" %}
+{% extends "_base.html" %}
 
 {% block links %}
 {% load static %}
@@ -33,7 +33,7 @@
     {% if forloop.last %}</div>{% endif %}
   {% endfor %}
 
-  {% include "base/include/_pagination.html" %}
+  {% include "includes/_pagination.html" %}
 
 
 {% endblock content %}

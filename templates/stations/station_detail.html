@@ -1,4 +1,4 @@
-{% extends "base/_base.html" %}
+{% extends "_base.html" %}
 
 {% block links %}
 {% load static %}
@@ -13,6 +13,8 @@
 
 
 <div class="col">
+  <a href="{% url 'stations:station-update' station.pk %}" class="btn btn-warning">Update Station</a>
+  <a href="{% url 'stations:station-delete' station.pk %}" class="btn btn-danger">Delete Station</a>
     <div class="row">
       <h4>Managers</h4>
         <div class="row justify-content-center">
