@@ -1,19 +1,29 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from stations.forms import ManagerCreationForm
-from stations.models import Station, Fuel, Discount, Manager
+from stations.models import Station, Fuel, Discount, Manager, Transaction
 
 
 def index(request):
-    return render(request, "stations/index.html")
+    context = {
+        "stations": Station.objects.count(),
+        "managers": Manager.objects.count(),
+        "transactions": Transaction.objects.count(),
+    }
+    return render(request, "stations/index.html", context=context)
 
 
 class StationListView(ListView):
     model = Station
     paginate_by = 4
+
+    def get_queryset(self) -> QuerySet[Any]:
+        return self.model.objects.filter(managers=self.request.user.pk)
 
 
 class StationDetailView(DetailView):

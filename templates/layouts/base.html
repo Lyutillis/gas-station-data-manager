@@ -27,6 +27,15 @@
     Django Pixel Lite  - {% block title %}{% endblock %} | AppSeed
 </title>
 
+{% load static %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{% static 'js/table.js' %}"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="title" content="Pixel Bootstrap 5 - About company">
 <meta name="author" content="Themesberg">
@@ -55,6 +64,8 @@
 <link rel="mask-icon" href="{{ ASSETS_ROOT }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
 
 <!-- Fontawesome -->
 <link type="text/css" href="{{ ASSETS_ROOT }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
