@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+
+{% block links %}
+{% load static %}
+<script src="{% static 'js/table.js' %}"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock links %}
+
+{% block content %}
+
+
+<div class="col">
+  {% comment %} <a href="{% url 'stations:discount-update' discount.pk %}" class="btn btn-warning">Update</a>
+  <a href="{% url 'stations:discount-delete' discount.pk %}" class="btn btn-danger">Delete</a> {% endcomment %}
+  <h3>{{ manager.username }}</h3>
+  <h3>{{ manager.first_name }} {{ manager.last_name }}</h3>
+  
+</div>
+
+
+{% endblock content %}

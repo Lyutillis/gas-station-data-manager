@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock links %}
+
+{% block content %}
+{% for manager in manager_list %}
+    {% if forloop.first %}
+    <div class="row">
+    {% endif %}
+    <div class="col-4">
+      <div class="underglow card mb-3">
+          <a href="{% url 'stations:manager-detail' manager.pk %}" style="text-decoration:None;">
+            <span class="link"></span>
+          </a>
+          <div class="row g-0">
+            <div class="col-md">
+              <div class="card-body">
+                <h5 class="card-title">{{ manager.username }}% Discount</h5>
+                <p class="card-text">{{ manager.first_name }} {{ manager.last_name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+  {% endfor %}
+
+  {% include "includes/_pagination.html" %}
+
+
+{% endblock content %}

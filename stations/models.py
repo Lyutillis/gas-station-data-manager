@@ -2,6 +2,8 @@ from __future__ import annotations
 import pathlib
 import uuid
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
 from config import settings
 
 
@@ -9,6 +11,11 @@ def image_upload_handler(instance: Station, filename: str) :
 	fpath=pathlib.Path(filename)
 	new_fname=str(uuid.uuid1())
 	return f'station-images/{new_fname}{fpath.suffix}'
+
+
+class Manager(AbstractUser):
+    def __str__(self) -> str:
+        return f"{self.username} ({self.first_name} {self.last_name})"
 
 
 class Fuel(models.Model):
