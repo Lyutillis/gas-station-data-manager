@@ -5,6 +5,10 @@ from django.views.generic import ListView, DetailView
 from stations.models import Station, Fuel
 
 
+def index(request):
+    return render(request, "stations/index.html")
+
+
 class StationListView(ListView):
     model = Station
     paginate_by = 4
