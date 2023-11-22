@@ -1,0 +1,62 @@
+{% extends "base/_base.html" %}
+
+{% block links %}
+{% load static %}
+<script src="{% static 'js/table.js' %}"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock links %}
+
+{% block content %}
+
+
+<div class="col">
+    <div class="row">
+      <h4>Managers</h4>
+        <div class="row justify-content-center">
+          {% for manager in station.managers.all %}
+            <div class="col-5 py-3">
+                <div class="card mb-3">
+                    <h5 class="card-header">{{ manager.first_name }} {{ manager.last_name }}</h5>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Check profile</a>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xs-8 col-xs-offset-2 well">
+        <table id="transaction-table" class="table table-scroll table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Fuel</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for transaction in station.transactions.all %}
+                <tr>
+                    <td>{{ transaction.pk }}</td>
+                    <td>{{ transaction.date }}</td>
+                    <td>{{ transaction.fuel.name }}</td>
+                    <td>{{ transaction.fuel.price }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td>{{ transaction.total }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+
+
+{% endblock content %}
