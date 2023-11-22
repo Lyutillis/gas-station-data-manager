@@ -1,0 +1,35 @@
+{% extends "base/_base.html" %}
+
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock links %}
+
+{% block content %}
+{% for fuel in fuel_list %}
+    {% if forloop.first %}
+    <div class="row">
+    {% endif %}
+    <div class="col-4">
+      <div class="underglow card mb-3">
+          <a style="text-decoration:None;">
+            <span class="link"></span>
+          </a>
+          <div class="row g-0">
+            <div class="col-md">
+              <div class="card-body">
+                <h5 class="card-title">{{ fuel.name }}</h5>
+                <p class="card-text">Price per litre: {{ fuel.price }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+  {% endfor %}
+
+  {% include "base/include/_pagination.html" %}
+
+
+{% endblock content %}
