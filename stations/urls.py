@@ -21,10 +21,13 @@ from .views import (
     ManagerListView,
     ManagerDetailView,
     ManagerCreateView,
+    ManagerLoginView,
 )
+
 
 urlpatterns = [
     path("", index, name="index"),
+    path("accounts/login/", ManagerLoginView.as_view(), name="login"),
     path("stations/", StationListView.as_view(), name="station-list"),
     path("stations/<int:pk>/", StationDetailView.as_view(), name="station-detail"),
     path("stations/create/", StationCreateView.as_view(), name="station-create"),

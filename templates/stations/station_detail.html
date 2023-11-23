@@ -16,12 +16,47 @@
                     <div class="col-lg-8">
                         <div class="mt-4 mb-5">
                             <h1 class="display-2 fw-normal my-4">{{ station.address }}</h1>
+                            <div class="btn-group">
+                                <a href="{% url 'stations:station-update' station.pk %}" class="btn btn-warning btn-icon">
+                                    <span class="me-1"><span class="fas fa-gas-pump"></span></span>
+                                    Update
+                                </a>
+                                <button class="btn btn-danger" aria-label="delete button" data-bs-toggle="modal"
+                                data-bs-target="#modal-default">
+                                    <span aria-hidden="true" class="fas fa-trash-alt"></span>
+                                    Delete
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- End of Hero section -->
+
+        <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+        aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="h6 modal-title">Are you sure?</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You can`t undo this!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form method="post" action="{% url 'stations:station-delete' station.pk %}">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger" value="Delete" />
+                        </form>
+                        <button type="button" class="btn btn-link ms-auto"
+                            data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="section bg-primary-app pb-3">
           <div class="container">
@@ -69,8 +104,8 @@
                         <p class="lead">They are responsible for it, not me!</p>
                     </div>
                 </div>
-                {% for manager in station.managers.all %}
                 <div class="row align-items-center">
+                    {% for manager in station.managers.all %}
                     <div class="col-md-6 col-lg-4 text-center">
                         <div class="card border-gray-300 mb-4">
                             <div class="card-body py-5">
@@ -80,8 +115,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
+            </div>
             </div>
         </div>
 
@@ -92,4 +127,10 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script>
+    $(document).on('click', '#delete-item', () => {
+        document.getElementById("item-delete-form").action = document.querySelector('#delete-item').href
+    });
+</script>
+{% endblock javascripts %}

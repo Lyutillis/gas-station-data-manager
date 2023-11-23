@@ -4,8 +4,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView
 
-from stations.forms import ManagerCreationForm
+from stations.forms import ManagerLoginForm, ManagerCreationForm, StationForm
 from stations.models import Station, Fuel, Discount, Manager, Transaction
 
 
@@ -20,7 +21,7 @@ def index(request):
 
 class StationListView(ListView):
     model = Station
-    paginate_by = 4
+    paginate_by = 6
 
     def get_queryset(self) -> QuerySet[Any]:
         return self.model.objects.filter(managers=self.request.user.pk)
@@ -38,13 +39,14 @@ class StationCreateView(CreateView):
 
 class StationUpdateView(UpdateView):
     model = Station
-    fields = ("address", "image", "managers",)
+    form_class = StationForm
     success_url = reverse_lazy("stations:station-list")
 
 
 class StationDeleteView(DeleteView):
     model = Station
     success_url = reverse_lazy("stations:station-list")
+
 
 
 class FuelListView(ListView):
@@ -103,6 +105,7 @@ class ManagerCreateView(CreateView):
     model = Manager
     form_class = ManagerCreationForm
     success_url = reverse_lazy("stations:manager-list")
+    template_name = "registration/register.html"
 
 
 class ManagerListView(ListView):
@@ -112,3 +115,9 @@ class ManagerListView(ListView):
 
 class ManagerDetailView(DetailView):
     model = Manager
+
+
+class ManagerLoginView(LoginView):
+    template_name = "registration/login.html"
+    form_class = ManagerLoginForm
+    success_url = reverse_lazy("stations:station-list")
