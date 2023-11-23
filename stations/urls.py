@@ -22,6 +22,7 @@ from .views import (
     ManagerDetailView,
     ManagerCreateView,
     ManagerLoginView,
+    ManagerUpdateView,
 )
 
 
@@ -45,7 +46,8 @@ urlpatterns = [
     path("discounts/delete/<int:pk>/", DiscountDeleteView.as_view(), name="discount-delete"),
     path("managers/", ManagerListView.as_view(), name="manager-list"),
     path("managers/<int:pk>/", ManagerDetailView.as_view(), name="manager-detail"),
-    path("managers/create/", ManagerCreateView.as_view(), name="manager-create")
+    path("managers/create/", ManagerCreateView.as_view(), name="manager-create"),
+    path("managers/update/<int:pk>/", ManagerUpdateView.as_view(), name="manager-update"),
 ]
 
 app_name = "stations"

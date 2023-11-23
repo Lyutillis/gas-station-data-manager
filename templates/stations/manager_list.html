@@ -19,9 +19,20 @@
        </svg>
     </figure>
   </section>
+  <section class="d-flex justify-content-center">
+      <div class="col-6">
+        <div class="mb-3">
+          <form action="" method="get" class="form-inline my-3" novalidate>
+          <div class="input-group">
+            {{ search_form }}
+            <button type="submit" class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
   <section>
     <div class="container d-flex justify-content-center">
-
         <div class="col-12">
           {% for manager in manager_list %}
             {% if forloop.first %}

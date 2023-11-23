@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 
-from stations.models import Station
+from stations.models import Station, Manager
 
 
 class StationForm(forms.ModelForm):
@@ -99,3 +100,62 @@ class ManagerCreationForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = ('username', 'email', "first_name", "last_name", 'password1', 'password2')
+
+
+class ManagerUsernameSearchForm(forms.Form):
+    username = forms.CharField(
+        max_length=150,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by username",
+                "class": "form-control",
+
+            }
+        ),
+    )
+
+
+class FuelNameSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=150,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by Fuel Type",
+                "class": "form-control",
+            }
+        )
+    )
+
+
+class StationAddressSearchForm(forms.Form):
+    address = forms.CharField(
+        max_length=150,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by Address",
+                "class": "form-control",
+            }
+        )
+    )
+
+
+class DiscountDescriptionSearchForm(forms.Form):
+    description = forms.CharField(
+        max_length=150,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by description",
+                "class": "form-control",
+            }
+        )
+    )
+
+
+class ManagerUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Manager
+        fields = ["username", "first_name", "last_name",]
