@@ -8,23 +8,29 @@ To launch the application, follow next steps:
 
 1. Fork the repository
 
-2. Clone it to your device:
+2. Clone it:
 `git clone <here goes the HTTPS link you could copy on github repositiry page>`
 
-3. Create virtual environment:
+3. Create a new branch:
+`git checkout -b <new branch name>`
+
+4. Create virtual environment:
 `python3 -m venv venv`
 
-4. Install requirements:
+5. Acivate venv:
+`source venv/Scripts/activate`
+
+6. Install requirements:
 `pip3 install -r requirements.txt`
 
-5. Creaste and run migrations:
+7. Creaste and run migrations:
 `python3 manage.py makemigrations`
 `python3 manage.py migrate`
 
-6. Load the data from fixture:
+8. Load the data from fixture:
 `python3 manage.py loaddata fixtures/db_data.json`
 
-7. Run server:
+9. Run server:
 `python3 manage.py runserver`
 
 To run the tests:
