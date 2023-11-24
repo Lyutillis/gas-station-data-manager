@@ -3,7 +3,13 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.http import HttpRequest, HttpResponse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
@@ -37,7 +43,12 @@ class StationListView(LoginRequiredMixin, ListView):
     model = Station
     paginate_by = 6
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> dict[str, Any]:
+    def get_context_data(
+        self,
+        *,
+        object_list=None,
+        **kwargs
+    ) -> dict[str, Any]:
         context = super(StationListView, self).get_context_data(**kwargs)
         address = self.request.GET.get("address", "")
         context["search_form"] = StationAddressSearchForm(
@@ -47,10 +58,14 @@ class StationListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self) -> QuerySet:
         form = StationAddressSearchForm(self.request.GET)
-        self.queryset = self.model.objects.prefetch_related().filter(managers=self.request.user.pk)
-        
+        self.queryset = self.model.objects.prefetch_related().filter(
+            managers=self.request.user.pk
+        )
+
         if form.is_valid():
-            return self.queryset.filter(address__icontains=form.cleaned_data["address"])
+            return self.queryset.filter(
+                address__icontains=form.cleaned_data["address"]
+            )
 
         return self.queryset
 
@@ -80,20 +95,27 @@ class FuelListView(LoginRequiredMixin, ListView):
     model = Fuel
     paginate_by = 6
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> dict[str, Any]:
+    def get_context_data(
+        self,
+        *,
+        object_list=None,
+        **kwargs
+    ) -> dict[str, Any]:
         context = super(FuelListView, self).get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
         context["search_form"] = FuelNameSearchForm(
             initial={"name": name}
         )
         return context
-    
+
     def get_queryset(self) -> QuerySet:
         form = FuelNameSearchForm(self.request.GET)
         self.queryset = self.model.objects.all()
-        
+
         if form.is_valid():
-            return self.queryset.filter(name__icontains=form.cleaned_data["name"])
+            return self.queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
 
         return self.queryset
 
@@ -123,27 +145,34 @@ class DiscountListView(LoginRequiredMixin, ListView):
     model = Discount
     paginate_by = 6
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> dict[str, Any]:
+    def get_context_data(
+        self,
+        *,
+        object_list=None,
+        **kwargs
+    ) -> dict[str, Any]:
         context = super(DiscountListView, self).get_context_data(**kwargs)
         description = self.request.GET.get("description", "")
         context["search_form"] = DiscountDescriptionSearchForm(
             initial={"description": description}
         )
         return context
-    
+
     def get_queryset(self) -> QuerySet:
         form = DiscountDescriptionSearchForm(self.request.GET)
         self.queryset = self.model.objects.all()
-        
+
         if form.is_valid():
-            return self.queryset.filter(description__icontains=form.cleaned_data["description"])
+            return self.queryset.filter(
+                description__icontains=form.cleaned_data["description"]
+            )
 
         return self.queryset
 
 
 class DiscountCreateView(LoginRequiredMixin, CreateView):
     model = Discount
-    form_class =DiscountForm
+    form_class = DiscountForm
     success_url = reverse_lazy("stations:discount-list")
 
 
@@ -173,20 +202,26 @@ class ManagerListView(LoginRequiredMixin, ListView):
     model = Manager
     paginate_by = 6
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> dict[str, Any]:
+    def get_context_data(
+        self,
+        *,
+        object_list=None,
+        **kwargs
+    ) -> dict[str, Any]:
         context = super(ManagerListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
         context["search_form"] = ManagerUsernameSearchForm(
             initial={"username": username}
         )
         return context
-    
+
     def get_queryset(self) -> QuerySet:
         form = ManagerUsernameSearchForm(self.request.GET)
         self.queryset = self.model.objects.prefetch_related().all()
-        
         if form.is_valid():
-            return self.queryset.filter(username__icontains=form.cleaned_data["username"])
+            return self.queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
 
         return self.queryset
 
