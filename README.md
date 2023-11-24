@@ -25,6 +25,9 @@ To launch the application, follow next steps:
 7. Run server:
 `python3 manage.py runserver`
 
+To run the tests:
+`python3 manage.py test stations/tests`
+
 Database Diagram:
 
 Application pages:
