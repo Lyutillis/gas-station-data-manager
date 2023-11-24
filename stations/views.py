@@ -5,12 +5,26 @@ from django.urls import reverse_lazy
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import get_user_model
+import random
 
-from stations.forms import ManagerLoginForm, ManagerCreationForm, StationForm, ManagerUsernameSearchForm, DiscountDescriptionSearchForm, FuelNameSearchForm, StationAddressSearchForm, ManagerUpdateForm
+from stations.forms import (
+    StationForm,
+    StationAddressSearchForm,
+    FuelForm,
+    FuelNameSearchForm,
+    DiscountForm,
+    DiscountDescriptionSearchForm,
+    ManagerLoginForm,
+    ManagerCreationForm,
+    ManagerUpdateForm,
+    ManagerUsernameSearchForm,
+)
 from stations.models import Station, Fuel, Discount, Manager, Transaction
 
 
-def index(request):
+def index(request: HttpRequest) -> HttpResponse:
     context = {
         "stations": Station.objects.count(),
         "managers": Manager.objects.count(),
@@ -19,7 +33,7 @@ def index(request):
     return render(request, "stations/index.html", context=context)
 
 
-class StationListView(ListView):
+class StationListView(LoginRequiredMixin, ListView):
     model = Station
     paginate_by = 6
 
@@ -31,9 +45,9 @@ class StationListView(ListView):
         )
         return context
 
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         form = StationAddressSearchForm(self.request.GET)
-        self.queryset = self.model.objects.filter(managers=self.request.user.pk)
+        self.queryset = self.model.objects.prefetch_related().filter(managers=self.request.user.pk)
         
         if form.is_valid():
             return self.queryset.filter(address__icontains=form.cleaned_data["address"])
@@ -41,29 +55,28 @@ class StationListView(ListView):
         return self.queryset
 
 
-class StationDetailView(DetailView):
+class StationDetailView(LoginRequiredMixin, DetailView):
     model = Station
 
 
-class StationCreateView(CreateView):
-    model = Station
-    fields = ("address", "image", "managers",)
-    success_url = reverse_lazy("stations:station-list")
-
-
-class StationUpdateView(UpdateView):
+class StationCreateView(LoginRequiredMixin, CreateView):
     model = Station
     form_class = StationForm
     success_url = reverse_lazy("stations:station-list")
 
 
-class StationDeleteView(DeleteView):
+class StationUpdateView(LoginRequiredMixin, UpdateView):
+    model = Station
+    form_class = StationForm
+    success_url = reverse_lazy("stations:station-list")
+
+
+class StationDeleteView(LoginRequiredMixin, DeleteView):
     model = Station
     success_url = reverse_lazy("stations:station-list")
 
 
-
-class FuelListView(ListView):
+class FuelListView(LoginRequiredMixin, ListView):
     model = Fuel
     paginate_by = 6
 
@@ -75,7 +88,7 @@ class FuelListView(ListView):
         )
         return context
     
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         form = FuelNameSearchForm(self.request.GET)
         self.queryset = self.model.objects.all()
         
@@ -85,31 +98,30 @@ class FuelListView(ListView):
         return self.queryset
 
 
-class FuelDetailView(DetailView):
+class FuelDetailView(LoginRequiredMixin, DetailView):
     model = Fuel
 
 
-class FuelCreateView(CreateView):
+class FuelCreateView(LoginRequiredMixin, CreateView):
     model = Fuel
-    fields = ("name", "price",)
+    form_class = FuelForm
     success_url = reverse_lazy("stations:fuel-list")
 
 
-class FuelUpdateView(UpdateView):
+class FuelUpdateView(LoginRequiredMixin, UpdateView):
     model = Fuel
-    fields = ("name", "price",)
+    form_class = FuelForm
     success_url = reverse_lazy("stations:fuel-list")
 
 
-class FuelDeleteView(DeleteView):
+class FuelDeleteView(LoginRequiredMixin, DeleteView):
     model = Fuel
     success_url = reverse_lazy("stations:fuel-list")
 
 
-class DiscountListView(ListView):
+class DiscountListView(LoginRequiredMixin, ListView):
     model = Discount
     paginate_by = 6
-    queryset = Discount.objects.all()
 
     def get_context_data(self, *, object_list=None, **kwargs) -> dict[str, Any]:
         context = super(DiscountListView, self).get_context_data(**kwargs)
@@ -119,7 +131,7 @@ class DiscountListView(ListView):
         )
         return context
     
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         form = DiscountDescriptionSearchForm(self.request.GET)
         self.queryset = self.model.objects.all()
         
@@ -129,38 +141,37 @@ class DiscountListView(ListView):
         return self.queryset
 
 
-class DiscountCreateView(CreateView):
+class DiscountCreateView(LoginRequiredMixin, CreateView):
     model = Discount
-    fields = ("description", "discount", "is_active",)
+    form_class =DiscountForm
     success_url = reverse_lazy("stations:discount-list")
 
 
-class DiscountDetailView(DetailView):
+class DiscountDetailView(LoginRequiredMixin, DetailView):
     model = Discount
 
 
-class DiscountUpdateView(UpdateView):
+class DiscountUpdateView(LoginRequiredMixin, UpdateView):
     model = Discount
-    fields = ("description", "discount", "is_active",)
+    form_class = DiscountForm
     success_url = reverse_lazy("stations:discount-list")
 
 
-class DiscountDeleteView(DeleteView):
+class DiscountDeleteView(LoginRequiredMixin, DeleteView):
     model = Discount
     success_url = reverse_lazy("stations:discount-list")
 
 
-class ManagerCreateView(CreateView):
+class ManagerCreateView(LoginRequiredMixin, CreateView):
     model = Manager
     form_class = ManagerCreationForm
     success_url = reverse_lazy("stations:manager-list")
     template_name = "registration/register.html"
 
 
-class ManagerListView(ListView):
+class ManagerListView(LoginRequiredMixin, ListView):
     model = Manager
     paginate_by = 6
-    queryset = Manager.objects.all()
 
     def get_context_data(self, *, object_list=None, **kwargs) -> dict[str, Any]:
         context = super(ManagerListView, self).get_context_data(**kwargs)
@@ -170,9 +181,9 @@ class ManagerListView(ListView):
         )
         return context
     
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         form = ManagerUsernameSearchForm(self.request.GET)
-        self.queryset = self.model.objects.all()
+        self.queryset = self.model.objects.prefetch_related().all()
         
         if form.is_valid():
             return self.queryset.filter(username__icontains=form.cleaned_data["username"])
@@ -180,7 +191,7 @@ class ManagerListView(ListView):
         return self.queryset
 
 
-class ManagerDetailView(DetailView):
+class ManagerDetailView(LoginRequiredMixin, DetailView):
     model = Manager
 
 
@@ -190,7 +201,12 @@ class ManagerLoginView(LoginView):
     success_url = reverse_lazy("stations:station-list")
 
 
-class ManagerUpdateView(UpdateView):
+class ManagerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manager
     form_class = ManagerUpdateForm
     success_url = reverse_lazy("stations:manager-list")
+
+
+class ManagerDeleteView(LoginRequiredMixin, DeleteView):
+    model = Manager
+    success_url = reverse_lazy("stations:manager-create")

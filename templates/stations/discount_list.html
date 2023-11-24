@@ -1,5 +1,8 @@
 {% extends "layouts/base.html" %}
 
+{% block title %}
+  Discounts
+{% endblock %}
 
 {% block content %}
 <main>
@@ -76,10 +79,21 @@
               </div>
           </div>
           {% if forloop.counter|divisibleby:3 %}</div><div class="row my-3">{% endif %}
-          {% if forloop.last %}</div>{% endif %}
+          {% if forloop.last and forloop.last|divisibleby:3 %}</div><div class="row my-3">{% endif %}
         {% endfor %}
+        <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div class="underglow card shadow text-center">
+            <a href="{% url 'stations:discount-create' %}" style="text-decoration:None;">
+              <span class="link"></span>
+            </a>
+            <div class="card-body">
+              <span>
+                <p style="font-size: 150px;">+</p>
+              </span>
+            </div>
         </div>
-
+      </div>
+      </div>
     </div>
   </section>
 </main>
@@ -91,4 +105,3 @@
   {% include 'includes/footer.html' %}
 
 {% endblock content %}
-

@@ -4,6 +4,8 @@ import uuid
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import AbstractUser
+from django.utils.html import mark_safe
+import decimal
 
 from config import settings
 
@@ -42,7 +44,18 @@ class Station(models.Model):
     image = models.ImageField(upload_to = image_upload_handler, null=True, blank=True)
     
     def __str__(self) -> str:
-        return f"{self.address}"        
+        return f"{self.address}"
+    
+    def image_tag(self):
+        if self.image:
+            return mark_safe('<img src="/static%s" width="150" height="150" />' % (self.image.url))
+        return None
+
+    def managers_tag(self):
+        return mark_safe('<p style="font-size: 16px;"><strong>%s</strong><p>' % (", ".join([str(manager) for manager in self.managers.prefetch_related()])))
+
+    image_tag.short_description = "Image"
+    managers_tag.short_description = "Managers"
 
 
 class Discount(models.Model):
@@ -54,7 +67,7 @@ class Discount(models.Model):
         ordering = ["discount",]
 
     def __str__(self) -> str:
-        return f"{self.discount}$: {self.description}"
+        return f"{self.discount}%: {self.description}"
     
 
 
@@ -71,14 +84,18 @@ class Transaction(models.Model):
         ordering = ["-date",]
     
     def __str__(self) -> str:
-        return f"{self.date}: total {self.total}$|{self.fuel.name}"
+        if self.fuel:
+            fuel = self.fuel.name 
+        else:
+            fuel = "Deprecated fuel type"
+        return f"{self.date}: total {self.total}$|{fuel}"
 
     def save(self, *args, **kwargs) -> None:
-        self.total = (self.amount * self.fuel.price)
-        if self.discount_total is None:
-            if self.discount and self.discount.is_active:
+        self.total = (decimal.Decimal(self.amount) * self.fuel.price)
+        if self.discount_total != 0:
+            if self.discount and self.discount.is_active or self.discount_total:
                 self.discount_total = self.total * (self.discount.discount / 100)
-                self.total -= self.discount_total
             else:
                 self.discount_total = 0
+        self.total -= self.discount_total
         super(Transaction, self).save(*args, **kwargs)

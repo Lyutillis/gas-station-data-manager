@@ -7,7 +7,7 @@ from stations.models import Manager, Fuel, Station, Discount, Transaction
 from config.settings import MEDIA_ROOT
 
 
-class ModelsTest(TestCase):
+class ModelsTests(TestCase):
     def test_create_manager(self):
         username="TestUser"
         email="test@user.com"
@@ -87,7 +87,7 @@ class ModelsTest(TestCase):
             is_active=True,
         )
 
-        self.assertEqual(str(discount), f"{discount.discount}$: {discount.description}")
+        self.assertEqual(str(discount), f"{discount.discount}%: {discount.description}")
 
     def test_transaction_str(self):
         discount = Discount.objects.create(
@@ -171,4 +171,3 @@ class ModelsTest(TestCase):
         discount_total_expected = expected_total * (transaction.discount.discount / 100)
         self.assertEqual(transaction.discount_total, discount_total_expected)
         self.assertEqual(transaction.total, expected_total - discount_total_expected)
-        

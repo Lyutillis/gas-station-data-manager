@@ -1,4 +1,4 @@
-<!--
+<!-- 
 
 =========================================================
 * Pixel Free Bootstrap 5 UI Kit
@@ -13,74 +13,60 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
 
--->
+ -->
 
-{% extends "layouts/base.html" %}
+{% extends 'layouts/base.html' %}
 {% block content %}
-
-    <main>
-
-        <!-- Hero -->
-        <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <div class="bootstrap-big-icon d-none d-lg-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="700" height="622" class="d-block bi bi-fuel-pump-fill"
-                            viewBox="0 0 16 16" role="img">
-
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336.383.228.634.551.794.907.295.655.294 1.465.294 2.081V7.5a.5.5 0 0 1-.5.5H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1zm2.5 0a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5z"
-                                 style="font-size: 700px;"></path>
-                            </svg>
-                        </div>
-                        <h1 class="fw-bolder display-2">
-                            Tur D
-                        </h1>
-                        <h2 class="lead fw-normal text-muted mb-4 px-lg-10">
-                            We manage your data, you manage your business!!!
-                        </h2>
-                    </div>
-                </div>
+  <main>
+    <!-- Hero -->
+    <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="bootstrap-big-icon d-none d-lg-block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="700" height="622" class="d-block bi bi-fuel-pump-fill" viewBox="0 0 16 16" role="img">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336.383.228.634.551.794.907.295.655.294 1.465.294 2.081V7.5a.5.5 0 0 1-.5.5H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1zm2.5 0a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5z" style="font-size: 700px;"></path>
+              </svg>
             </div>
-            <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="fill-white"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
-                    <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
-                </svg></figure>
-        </section>
-        <section class="section section-lg">
-            <div class="container">
-                <div class="row justify-content-center mb-5 mb-lg-6">
-                    <div class="col-6 col-md-3 text-center mb-4">
-                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
-                            <span class="fas fa-wave-square text-tertiary"></span>
-                        </div>
-                        <h3 class="fw-bolder">{{ stations }}</h3>
-                        <p class="text-gray">Stations we are responsible for</p>
-                    </div>
-                    <div class="col-6 col-md-3 text-center mb-4">
-                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
-                            <span class="fas fa-user text-tertiary"></span>
-                        </div>
-                        <h3 class="fw-bolder">{{ managers }}</h3>
-                        <p class="text-gray">Users that trust us</p>
-                    </div>
-                    <div class="col-6 col-md-3 text-center">
-                        <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
-                            <span class="fas fa-th-list text-tertiary"></span>
-                        </div>
-                        <h3 class="fw-bolder">{{ transactions }}</h3>
-                        <p class="text-gray">Data rows we are responsible for</p>
-                    </div>
-                </div>
+            <h1 class="fw-bolder display-2">Tur D</h1>
+            <h2 class="lead fw-normal text-muted mb-4 px-lg-10">We manage your data, you manage your business!!!</h2>
+          </div>
+        </div>
+      </div>
+      <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+        <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+          <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
+        </svg>
+      </figure>
+    </section>
+    <section class="section section-lg">
+      <div class="container">
+        <div class="row justify-content-center mb-5 mb-lg-6">
+          <div class="col-6 col-md-3 text-center mb-4">
+            <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+              <span class="fas fa-wave-square text-tertiary"></span>
             </div>
-        </section>
+            <h3 class="fw-bolder">{{ stations }}</h3>
+            <p class="text-gray">Stations we are responsible for</p>
+          </div>
+          <div class="col-6 col-md-3 text-center mb-4">
+            <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+              <span class="fas fa-user text-tertiary"></span>
+            </div>
+            <h3 class="fw-bolder">{{ managers }}</h3>
+            <p class="text-gray">Users that trust us</p>
+          </div>
+          <div class="col-6 col-md-3 text-center">
+            <div class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle mb-4">
+              <span class="fas fa-th-list text-tertiary"></span>
+            </div>
+            <h3 class="fw-bolder">{{ transactions }}</h3>
+            <p class="text-gray">Data rows we manage</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-
-
-        
-    </main>
-
-    {% include 'includes/footer.html' %}
-
-{% endblock content %}
+  {% include 'includes/footer.html' %}
+{% endblock %}

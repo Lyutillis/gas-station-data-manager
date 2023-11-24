@@ -1,25 +1,23 @@
 {% load query_transform %}
 
-
 <div class="my-3 d-flex justify-content-center">
-{% if is_paginated %}
+  {% if is_paginated %}
     <ul class="pagination">
-        {% if page_obj.has_previous %}
+      {% if page_obj.has_previous %}
         <li class="page-item">
-            <a href="?{% query_transform request page=page_obj.previous_page_number %}" class="page-link">prev</a>
+          <a href="?{% query_transform request page=page_obj.previous_page_number %}" class="page-link">prev</a>
         </li>
-        {% endif %}
+      {% endif %}
 
-        <li class="page-item active">
+      <li class="page-item active">
         <span class="page-link">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
-        </li>
+      </li>
 
-        {% if page_obj.has_next %}
+      {% if page_obj.has_next %}
         <li class="page-item">
-            <a href="?{% query_transform request page=page_obj.next_page_number %}" class="page-link">next</a>
+          <a href="?{% query_transform request page=page_obj.next_page_number %}" class="page-link">next</a>
         </li>
-
-        {% endif %}
+      {% endif %}
     </ul>
-{% endif %}
+  {% endif %}
 </div>

@@ -1,9 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
-from django.core.exceptions import ValidationError
 
-from stations.models import Station, Manager
+from stations.models import Station, Manager, Fuel, Discount
 
 
 class StationForm(forms.ModelForm):
@@ -11,9 +10,10 @@ class StationForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Address",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     managers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
@@ -32,25 +32,80 @@ class StationForm(forms.ModelForm):
         fields = ["address", "image", "managers",]
 
 
+class FuelForm(forms.ModelForm):
+    name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Type",
+                "class": "form-control",
+            }
+        )
+    )
+    price = forms.DecimalField(
+        widget=forms.NumberInput(
+            attrs={
+                "placeholder": "Price per litre",
+                "class": "form-control",
+            }
+        )
+    )
+
+    class Meta:
+        model = Fuel
+        fields = ["name", "price",]
+
+
+class DiscountForm(forms.ModelForm):
+    description = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "rows": 3,
+                "placeholder": "Short Description",
+                "class": "form-control",
+            }
+        )
+    )
+    discount = forms.DecimalField(
+        widget=forms.NumberInput(
+            attrs={
+                "placeholder": "Discount %",
+                "class": "form-control",
+            }
+        )
+    )
+    
+    is_active = forms.TypedChoiceField(
+        coerce=lambda x: x == 'True',
+        choices=((True, 'True'), (False, 'False'),),
+        widget=forms.RadioSelect,
+    )
+
+    class Meta:
+        model = Discount
+        fields = ["description", "discount", "is_active",]
+
+
 class ManagerLoginForm(AuthenticationForm):
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Username",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     password = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Password",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     
     class Meta:
         model = get_user_model()
-        fields = ("username", "password",)
+        fields = ["username", "password",]
 
 
 class ManagerCreationForm(UserCreationForm):
@@ -58,48 +113,54 @@ class ManagerCreationForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Username",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
                 "placeholder": "Email",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     first_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "placeholder": "First Name",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     last_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Last Name",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     password1 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Password",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
     password2 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Password check",
-                "class": "form-control"
+                "class": "form-control",
             }
-        ))
+        )
+    )
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'email', "first_name", "last_name", 'password1', 'password2')
+        fields = ['username', 'email', "first_name", "last_name", 'password1', 'password2']
 
 
 class ManagerUsernameSearchForm(forms.Form):
@@ -156,6 +217,30 @@ class DiscountDescriptionSearchForm(forms.Form):
 
 
 class ManagerUpdateForm(forms.ModelForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Username",
+                "class": "form-control",
+            }
+        )
+    )
+    first_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "First Name",
+                "class": "form-control",
+            }
+        )
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Last Name",
+                "class": "form-control",
+            }
+        )
+    )
     class Meta:
         model = Manager
         fields = ["username", "first_name", "last_name",]
