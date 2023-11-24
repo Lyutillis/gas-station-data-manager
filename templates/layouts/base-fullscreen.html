@@ -1,4 +1,4 @@
-<!--  
+<!-- 
 
 =========================================================
 * Pixel Free Bootstrap 5 UI Kit
@@ -13,7 +13,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
 
-  -->
+ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,20 +23,8 @@
     <!-- Primary Meta Tags -->
     <title>
       Tur D|{% block title %}
-
-      {% endblock %}| AppSeed
+      {% endblock %}
     </title>
-
-    {% load static %}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="{% static 'css/card.css' %}" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="{% static 'css/card.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/table.css' %}" />
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-    <script src="{% static 'js/table.js' %}"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="title" content="Pixel Bootstrap 5 - About company" />
@@ -75,21 +63,16 @@
 
     <!-- Specific Page JS goes HERE -->
     {% block stylesheets %}
-
     {% endblock %}
   </head>
   <body>
-    {% include 'includes/navigation.html' %}
-
     {% block content %}
-
     {% endblock %}
 
     {% include 'includes/scripts.html' %}
 
     <!-- Specific Page JS goes HERE -->
     {% block javascripts %}
-
     {% endblock %}
   </body>
 </html>

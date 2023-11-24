@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # For cleaning up the files after deleting model instance
+    'django_cleanup.apps.CleanupConfig',
+
     "stations",
 ]
 
