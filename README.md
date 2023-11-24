@@ -27,6 +27,7 @@ To launch the application, follow next steps:
 
 To run the tests:
 `python3 manage.py test stations/tests`
+
 Database Diagram:
 
 Application pages:
