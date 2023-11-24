@@ -29,7 +29,11 @@ class StationForm(forms.ModelForm):
 
     class Meta:
         model = Station
-        fields = ["address", "image", "managers",]
+        fields = [
+            "address",
+            "image",
+            "managers",
+        ]
 
 
 class FuelForm(forms.ModelForm):
@@ -52,7 +56,10 @@ class FuelForm(forms.ModelForm):
 
     class Meta:
         model = Fuel
-        fields = ["name", "price",]
+        fields = [
+            "name",
+            "price",
+        ]
 
 
 class DiscountForm(forms.ModelForm):
@@ -73,16 +80,23 @@ class DiscountForm(forms.ModelForm):
             }
         )
     )
-    
+
     is_active = forms.TypedChoiceField(
-        coerce=lambda x: x == 'True',
-        choices=((True, 'True'), (False, 'False'),),
+        coerce=lambda x: x == "True",
+        choices=(
+            (True, "True"),
+            (False, "False"),
+        ),
         widget=forms.RadioSelect,
     )
 
     class Meta:
         model = Discount
-        fields = ["description", "discount", "is_active",]
+        fields = [
+            "description",
+            "discount",
+            "is_active",
+        ]
 
 
 class ManagerLoginForm(AuthenticationForm):
@@ -102,10 +116,13 @@ class ManagerLoginForm(AuthenticationForm):
             }
         )
     )
-    
+
     class Meta:
         model = get_user_model()
-        fields = ["username", "password",]
+        fields = [
+            "username",
+            "password",
+        ]
 
 
 class ManagerCreationForm(UserCreationForm):
@@ -160,7 +177,14 @@ class ManagerCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', "first_name", "last_name", 'password1', 'password2']
+        fields = [
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "password1",
+            "password2",
+        ]
 
 
 class ManagerUsernameSearchForm(forms.Form):
@@ -171,7 +195,6 @@ class ManagerUsernameSearchForm(forms.Form):
             attrs={
                 "placeholder": "Search by username",
                 "class": "form-control",
-
             }
         ),
     )
@@ -186,7 +209,7 @@ class FuelNameSearchForm(forms.Form):
                 "placeholder": "Search by Fuel Type",
                 "class": "form-control",
             }
-        )
+        ),
     )
 
 
@@ -199,7 +222,7 @@ class StationAddressSearchForm(forms.Form):
                 "placeholder": "Search by Address",
                 "class": "form-control",
             }
-        )
+        ),
     )
 
 
@@ -212,7 +235,7 @@ class DiscountDescriptionSearchForm(forms.Form):
                 "placeholder": "Search by description",
                 "class": "form-control",
             }
-        )
+        ),
     )
 
 
@@ -241,6 +264,11 @@ class ManagerUpdateForm(forms.ModelForm):
             }
         )
     )
+
     class Meta:
         model = Manager
-        fields = ["username", "first_name", "last_name",]
+        fields = [
+            "username",
+            "first_name",
+            "last_name",
+        ]

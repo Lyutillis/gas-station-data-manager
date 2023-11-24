@@ -9,11 +9,11 @@ from config.settings import MEDIA_ROOT
 
 class ModelsTests(TestCase):
     def test_create_manager(self):
-        username="TestUser"
-        email="test@user.com"
-        password="123safety"
-        first_name="Test"
-        last_name="User"
+        username = "TestUser"
+        email = "test@user.com"
+        password = "123safety"
+        first_name = "Test"
+        last_name = "User"
         manager = Manager.objects.create_user(
             username=username,
             email=email,
@@ -35,16 +35,16 @@ class ModelsTests(TestCase):
             first_name="Test",
             last_name="User",
         )
-        self.assertEqual(str(manager), f"{manager.username} ({manager.first_name} {manager.last_name})")
+        self.assertEqual(
+            str(manager),
+            f"{manager.username} ({manager.first_name} {manager.last_name})",
+        )
 
     def test_fuel_str(self):
-        fuel = Fuel.objects.create(
-            name="Diesel",
-            price=100
-        )
-        
-        self.assertEqual(str(fuel), f"{fuel.name}: {fuel.price}$\litre")
-    
+        fuel = Fuel.objects.create(name="Diesel", price=100)
+
+        self.assertEqual(str(fuel), f"{fuel.name}: {fuel.price}$\\litre")
+
     def test_station_str(self):
         manager = Manager.objects.create_user(
             username="TestUser",
@@ -74,11 +74,19 @@ class ModelsTests(TestCase):
         )
         station.managers.add(manager.pk)
 
-        station.image = SimpleUploadedFile(name='test_image.jpg', content=open(os.path.join(MEDIA_ROOT, "test_image.jpg"), 'rb').read(), content_type='image/jpeg')
+        station.image = SimpleUploadedFile(
+            name="test_image.jpg",
+            content=open(
+                os.path.join(MEDIA_ROOT, "test_image.jpg"), "rb"
+            ).read(),
+            content_type="image/jpeg",
+        )
         station.save()
 
         self.assertTrue(station.image.url)
-        self.assertNotEqual(station.image.url, os.path.join(MEDIA_ROOT, "test_image.jpg"))
+        self.assertNotEqual(
+            station.image.url, os.path.join(MEDIA_ROOT, "test_image.jpg")
+        )
 
     def test_discount_str(self):
         discount = Discount.objects.create(
@@ -87,7 +95,10 @@ class ModelsTests(TestCase):
             is_active=True,
         )
 
-        self.assertEqual(str(discount), f"{discount.discount}%: {discount.description}")
+        self.assertEqual(
+            str(discount),
+            f"{discount.discount}%: {discount.description}",
+        )
 
     def test_transaction_str(self):
         discount = Discount.objects.create(
@@ -95,10 +106,7 @@ class ModelsTests(TestCase):
             discount=10,
             is_active=True,
         )
-        fuel = Fuel.objects.create(
-            name="Diesel",
-            price=100
-        )
+        fuel = Fuel.objects.create(name="Diesel", price=100)
         manager = Manager.objects.create_user(
             username="TestUser",
             email="test@user.com",
@@ -119,8 +127,12 @@ class ModelsTests(TestCase):
             discount=discount,
         )
 
-        self.assertEqual(str(transaction), f"{transaction.date}: total {transaction.total}$|{transaction.fuel.name}")
-    
+        self.assertEqual(
+            str(transaction),
+            (f"{transaction.date}: total"
+             f" {transaction.total}$|{transaction.fuel.name}"),
+        )
+
     def test_transaction_total_values(self):
         discount_active = Discount.objects.create(
             description="Test discount",
@@ -132,10 +144,7 @@ class ModelsTests(TestCase):
             discount=10,
             is_active=False,
         )
-        fuel = Fuel.objects.create(
-            name="Diesel",
-            price=100
-        )
+        fuel = Fuel.objects.create(name="Diesel", price=100)
         manager = Manager.objects.create_user(
             username="TestUser",
             email="test@user.com",
@@ -168,6 +177,10 @@ class ModelsTests(TestCase):
         )
 
         expected_total = transaction.amount * transaction.fuel.price
-        discount_total_expected = expected_total * (transaction.discount.discount / 100)
+        discount_total_expected = (expected_total
+                                   * (transaction.discount.discount / 100))
         self.assertEqual(transaction.discount_total, discount_total_expected)
-        self.assertEqual(transaction.total, expected_total - discount_total_expected)
+        self.assertEqual(
+            transaction.total,
+            expected_total - discount_total_expected
+        )

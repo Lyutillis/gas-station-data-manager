@@ -49,8 +49,22 @@ class StationAdmin(admin.ModelAdmin):
 
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ("date", "station", "fuel", "amount", "discount", "discount_total", "total",)
-    search_fields = ("date", "station", "fuel", "amount", "discount_total", "total")
+    list_display = (
+        "date",
+        "station",
+        "fuel",
+        "amount",
+        "discount",
+        "discount_total",
+        "total",
+    )
+    search_fields = (
+        "date",
+        "station",
+        "fuel",
+        "amount",
+        "discount_total",
+        "total"
+    )
     list_filter = ("date", "station", "fuel", "discount",)
-
     exclude = ("discount_total", "total",)
