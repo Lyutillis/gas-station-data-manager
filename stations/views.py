@@ -13,7 +13,6 @@ from django.views.generic import (
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-import random
 
 from stations.forms import (
     StationForm,
