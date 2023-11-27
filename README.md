@@ -9,7 +9,7 @@ Front-End was taken from free Django-Pixel UI framework.
 
 To test functionality use login data:
 - `username: TestUser`
-- `password: qwerty123`
+- `password: 2wsxvfr4`
 
 # Lauching project locally
 
