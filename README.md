@@ -4,6 +4,15 @@ This app was created to help Gas Station owners manage their revenues, and relat
 
 Front-End was taken from free Django-Pixel UI framework.
 
+# Check it yourself!
+[Gas station project deployed to Render](https://gas-station-data-manager.onrender.com/)
+
+To test functionality use login data:
+- `username: TestUser`
+- `password: qwerty123`
+
+# Lauching project locally
+
 To launch the application, follow next steps:
 
 1. Fork the repository
@@ -35,10 +44,11 @@ To launch the application, follow next steps:
 
 To run the tests:
 `python3 manage.py test stations/tests`
-
+# DB info
 Database Diagram:
 ![image](https://github.com/Lyutillis/gas-station-data-manager/assets/62535257/14c58b61-77d4-48a8-b604-2de70d2e2f8b)
 
+# Demo
 Application pages:
 - Main Page
 ![image](https://github.com/Lyutillis/gas-station-data-manager/assets/62535257/c2b8e07c-aed3-41c7-b11d-4e4aeedab5f3)
