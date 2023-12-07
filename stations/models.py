@@ -32,9 +32,7 @@ class Fuel(models.Model):
     class Meta:
         verbose_name = "fuel"
         verbose_name_plural = "fuel"
-        ordering = [
-            "price",
-        ]
+        ordering = ["price"]
 
     def __str__(self) -> str:
         return f"{self.name}: {self.price}$\\litre"
@@ -91,9 +89,7 @@ class Discount(models.Model):
     is_active = models.BooleanField(null=True)
 
     class Meta:
-        ordering = [
-            "discount",
-        ]
+        ordering = ["discount"]
 
     def __str__(self) -> str:
         return f"{self.discount}%: {self.description}"
@@ -126,9 +122,7 @@ class Transaction(models.Model):
     )
 
     class Meta:
-        ordering = [
-            "-date",
-        ]
+        ordering = ["-date"]
 
     def __str__(self) -> str:
         if self.fuel:

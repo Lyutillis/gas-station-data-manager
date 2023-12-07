@@ -15,8 +15,7 @@ To launch the application, follow next steps:
 4. Install requirements:
 `pip3 install -r requirements.txt`
 
-5. Creaste and run migrations:
-`python3 manage.py makemigrations`
+5. Run migrations:
 `python3 manage.py migrate`
 
 6. Load the data from fixture:
