@@ -36,7 +36,7 @@ To launch the application, follow next steps:
 `python3 manage.py migrate`
 
 8. Load the data from fixture:
-`python3 manage.py loaddata fixtures/db_data.xml`
+`python3 manage.py loaddata fixtures/db_data.json`
 
 9. Run server:
 `python3 manage.py runserver`
