@@ -76,18 +76,15 @@ class StationDetailView(LoginRequiredMixin, DetailView):
 class StationCreateView(LoginRequiredMixin, CreateView):
     model = Station
     form_class = StationForm
-    success_url = reverse_lazy("stations:station-list")
 
 
 class StationUpdateView(LoginRequiredMixin, UpdateView):
     model = Station
     form_class = StationForm
-    success_url = reverse_lazy("stations:station-list")
 
 
 class StationDeleteView(LoginRequiredMixin, DeleteView):
     model = Station
-    success_url = reverse_lazy("stations:station-list")
 
 
 class FuelListView(LoginRequiredMixin, ListView):
@@ -126,18 +123,15 @@ class FuelDetailView(LoginRequiredMixin, DetailView):
 class FuelCreateView(LoginRequiredMixin, CreateView):
     model = Fuel
     form_class = FuelForm
-    success_url = reverse_lazy("stations:fuel-list")
 
 
 class FuelUpdateView(LoginRequiredMixin, UpdateView):
     model = Fuel
     form_class = FuelForm
-    success_url = reverse_lazy("stations:fuel-list")
 
 
 class FuelDeleteView(LoginRequiredMixin, DeleteView):
     model = Fuel
-    success_url = reverse_lazy("stations:fuel-list")
 
 
 class DiscountListView(LoginRequiredMixin, ListView):
@@ -172,7 +166,6 @@ class DiscountListView(LoginRequiredMixin, ListView):
 class DiscountCreateView(LoginRequiredMixin, CreateView):
     model = Discount
     form_class = DiscountForm
-    success_url = reverse_lazy("stations:discount-list")
 
 
 class DiscountDetailView(LoginRequiredMixin, DetailView):
@@ -182,18 +175,15 @@ class DiscountDetailView(LoginRequiredMixin, DetailView):
 class DiscountUpdateView(LoginRequiredMixin, UpdateView):
     model = Discount
     form_class = DiscountForm
-    success_url = reverse_lazy("stations:discount-list")
 
 
 class DiscountDeleteView(LoginRequiredMixin, DeleteView):
     model = Discount
-    success_url = reverse_lazy("stations:discount-list")
 
 
 class ManagerCreateView(LoginRequiredMixin, CreateView):
     model = Manager
     form_class = ManagerCreationForm
-    success_url = reverse_lazy("stations:manager-list")
     template_name = "registration/register.html"
 
 
@@ -232,15 +222,12 @@ class ManagerDetailView(LoginRequiredMixin, DetailView):
 class ManagerLoginView(LoginView):
     template_name = "registration/login.html"
     form_class = ManagerLoginForm
-    success_url = reverse_lazy("stations:station-list")
 
 
 class ManagerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manager
     form_class = ManagerUpdateForm
-    success_url = reverse_lazy("stations:manager-list")
 
 
 class ManagerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manager
-    success_url = reverse_lazy("stations:manager-create")
