@@ -1,6 +1,9 @@
 from django.urls import path
 
 from .views import (
+    TransactionDeleteView,
+    TransactionCreateView,
+    TransactionUpdateView,
     index,
     StationListView,
     StationDetailView,
@@ -21,12 +24,14 @@ from .views import (
     ManagerLoginView,
     ManagerUpdateView,
     ManagerDeleteView,
+    ManagerPasswordChangeView,
 )
 
 
 urlpatterns = [
     path("", index, name="index"),
     path("accounts/login/", ManagerLoginView.as_view(), name="login"),
+    path("accounts/logout/", ManagerLoginView.as_view(), name="login"),
     path("stations/", StationListView.as_view(), name="station-list"),
     path(
         "stations/<int:pk>/",
@@ -100,6 +105,26 @@ urlpatterns = [
         "managers/delete/<int:pk>/",
         ManagerDeleteView.as_view(),
         name="manager-delete",
+    ),
+    path(
+        "transactions/create/",
+        TransactionCreateView.as_view(),
+        name="transaction-create"
+    ),
+    path(
+        "transactions/update/<int:pk>/",
+        TransactionUpdateView.as_view(),
+        name="transaction-update"
+    ),
+    path(
+        "transactions/delete/<int:pk>/",
+        TransactionDeleteView.as_view(),
+        name="transaction-delete"
+    ),
+    path(
+        'password/',
+        ManagerPasswordChangeView.as_view(),
+        name='change_password'
     ),
 ]
 

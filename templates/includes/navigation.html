@@ -34,7 +34,10 @@
       <div class="d-flex align-items-center">
         {% if user.is_authenticated %}
           <a href="{% url 'stations:manager-detail' user.pk %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-user me-2"></span>{{ user.username }}</a>
-          <a href="{% url 'logout' %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span> Logout</a>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-out-alt me-2"></span> Logout</button>
+          </form>
         {% else %}
           <a href="{% url 'login' %}" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-in-alt me-2"></span> Login</a>
         {% endif %}

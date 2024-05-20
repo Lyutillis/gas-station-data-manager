@@ -70,6 +70,7 @@
                   <th>Price</th>
                   <th>Amount</th>
                   <th>Total</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -81,10 +82,29 @@
                     <td>{{ transaction.fuel.price }}</td>
                     <td>{{ transaction.amount }}</td>
                     <td>{{ transaction.total }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <a href="{% url 'stations:transaction-update' transaction.pk %}" class="btn btn-warning btn-icon">
+                          <span class="me-1"><span class="fas fa-gas-pump"></span></span>
+                          Update
+                        </a>
+                        <a href="{% url 'stations:transaction-delete' transaction.pk %}" class="btn btn-danger" aria-label="delete button">
+                          <span aria-hidden="true" class="fas fa-trash-alt"></span>
+                          Delete
+                        </a>
+                      </div>
+                    </td>
                   </tr>
                 {% endfor %}
               </tbody>
             </table>
+          </div>
+          <div>
+            <p>Add new transaction</p>
+            <a href="{% url 'stations:transaction-create' %}" class="btn btn-primary btn-icon">
+              <span class="me-1"><span class="fas fa-gas-pump"></span></span>
+              Add
+            </a>
           </div>
         </div>
       </div>

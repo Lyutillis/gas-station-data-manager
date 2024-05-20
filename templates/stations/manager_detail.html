@@ -16,6 +16,10 @@
                 <h1 class="display-2 fw-normal my-4">{{ manager.username }}</h1>
                 <h4 class="display-4 fw-normal my-4">{{ manager.email }}</h4>
                 <h4 class="display-4 fw-normal my-4">{{ manager.first_name }} {{ manager.last_name }}</h4>
+                <a href="{% url 'stations:change_password' %}" class="btn btn-primary btn-icon">
+                  <span class="me-1"><span class="fas fa-gas-pump"></span></span>
+                  Change password
+                </a>
               </div>
             </div>
           </div>

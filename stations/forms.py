@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
 
-from stations.models import Station, Manager, Fuel, Discount
+from stations.models import Station, Manager, Fuel, Discount, Transaction
 
 
 class StationForm(forms.ModelForm):
@@ -271,4 +271,36 @@ class ManagerUpdateForm(forms.ModelForm):
             "username",
             "first_name",
             "last_name",
+        ]
+
+
+class TransactionForm(forms.ModelForm):
+    fuel = forms.ModelChoiceField(
+        queryset=Fuel.objects.all(),
+        widget=forms.Select,
+    )
+    amount = forms.DecimalField(
+        widget=forms.NumberInput(
+            attrs={
+                "placeholder": "Amount",
+                "class": "form-control",
+            }
+        )
+    )
+    station = forms.ModelChoiceField(
+        queryset=Station.objects.all(),
+        widget=forms.Select,
+    )
+    discount = forms.ModelChoiceField(
+        queryset=Discount.objects.all(),
+        widget=forms.Select,
+    )
+
+    class Meta:
+        model = Transaction
+        fields = [
+            "fuel",
+            "amount",
+            "station",
+            "discount",
         ]

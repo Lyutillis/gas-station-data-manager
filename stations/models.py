@@ -17,6 +17,8 @@ def image_upload_handler(instance: Station, filename: str):
 
 
 class Manager(AbstractUser):
+    email = models.EmailField(unique=True)
+
     class Meta:
         verbose_name = "manager"
         verbose_name_plural = "managers"

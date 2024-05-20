@@ -1,11 +1,7 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 
 from stations.models import Manager, Fuel, Station, Transaction, Discount
-
-
-admin.site.unregister(Group)
 
 
 @admin.register(Manager)

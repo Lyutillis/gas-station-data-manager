@@ -10,9 +10,9 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import get_user_model
+from django.contrib.auth import update_session_auth_hash
 
 from stations.forms import (
     StationForm,
@@ -25,6 +25,7 @@ from stations.forms import (
     ManagerCreationForm,
     ManagerUpdateForm,
     ManagerUsernameSearchForm,
+    TransactionForm,
 )
 from stations.models import Station, Fuel, Discount, Manager, Transaction
 
@@ -57,9 +58,11 @@ class StationListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self) -> QuerySet:
         form = StationAddressSearchForm(self.request.GET)
-        self.queryset = self.model.objects.prefetch_related().filter(
-            managers=self.request.user.pk
-        )
+        self.queryset = self.model.objects.prefetch_related()
+        if not self.request.user.is_staff:
+            self.queryset = self.queryset.filter(
+                managers=self.request.user.pk
+            )
 
         if form.is_valid():
             return self.queryset.filter(
@@ -76,15 +79,18 @@ class StationDetailView(LoginRequiredMixin, DetailView):
 class StationCreateView(LoginRequiredMixin, CreateView):
     model = Station
     form_class = StationForm
+    success_url = reverse_lazy("stations:station-list")
 
 
 class StationUpdateView(LoginRequiredMixin, UpdateView):
     model = Station
     form_class = StationForm
+    success_url = reverse_lazy("stations:station-list")
 
 
 class StationDeleteView(LoginRequiredMixin, DeleteView):
     model = Station
+    success_url = reverse_lazy("stations:station-list")
 
 
 class FuelListView(LoginRequiredMixin, ListView):
@@ -123,15 +129,18 @@ class FuelDetailView(LoginRequiredMixin, DetailView):
 class FuelCreateView(LoginRequiredMixin, CreateView):
     model = Fuel
     form_class = FuelForm
+    success_url = reverse_lazy("stations:fuel-list")
 
 
 class FuelUpdateView(LoginRequiredMixin, UpdateView):
     model = Fuel
     form_class = FuelForm
+    success_url = reverse_lazy("stations:fuel-list")
 
 
 class FuelDeleteView(LoginRequiredMixin, DeleteView):
     model = Fuel
+    success_url = reverse_lazy("stations:fuel-list")
 
 
 class DiscountListView(LoginRequiredMixin, ListView):
@@ -166,6 +175,7 @@ class DiscountListView(LoginRequiredMixin, ListView):
 class DiscountCreateView(LoginRequiredMixin, CreateView):
     model = Discount
     form_class = DiscountForm
+    success_url = reverse_lazy("stations:discount-list")
 
 
 class DiscountDetailView(LoginRequiredMixin, DetailView):
@@ -175,16 +185,19 @@ class DiscountDetailView(LoginRequiredMixin, DetailView):
 class DiscountUpdateView(LoginRequiredMixin, UpdateView):
     model = Discount
     form_class = DiscountForm
+    success_url = reverse_lazy("stations:discount-list")
 
 
 class DiscountDeleteView(LoginRequiredMixin, DeleteView):
     model = Discount
+    success_url = reverse_lazy("stations:discount-list")
 
 
 class ManagerCreateView(LoginRequiredMixin, CreateView):
     model = Manager
     form_class = ManagerCreationForm
     template_name = "registration/register.html"
+    success_url = reverse_lazy("stations:manager-list")
 
 
 class ManagerListView(LoginRequiredMixin, ListView):
@@ -227,7 +240,49 @@ class ManagerLoginView(LoginView):
 class ManagerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manager
     form_class = ManagerUpdateForm
+    success_url = reverse_lazy("stations:manager-list")
 
 
 class ManagerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manager
+    success_url = reverse_lazy("stations:manager-list")
+
+
+class TransactionCreateView(LoginRequiredMixin, CreateView):
+    model = Transaction
+    form_class = TransactionForm
+    template_name = "stations/transaction_form.html"
+    success_url = reverse_lazy("stations:transaction-list")
+
+    def get_success_url(self) -> str:
+        station_id = self.object.station.id
+        return reverse_lazy("stations:station-detail", kwargs={"pk": station_id})
+
+
+class TransactionUpdateView(LoginRequiredMixin, UpdateView):
+    model = Transaction
+    form_class = TransactionForm
+    success_url = reverse_lazy("stations:transaction-list")
+
+    def get_success_url(self) -> str:
+        station_id = self.object.station.id
+        return reverse_lazy("stations:station-detail", kwargs={"pk": station_id})
+
+
+class TransactionDeleteView(LoginRequiredMixin, DeleteView):
+    model = Transaction
+    success_url = reverse_lazy("stations:transaction-list")
+
+    def get_success_url(self) -> str:
+        station_id = self.object.station.id
+        return reverse_lazy("stations:station-detail", kwargs={"pk": station_id})
+
+
+class ManagerPasswordChangeView(PasswordChangeView):
+    template_name = "registration/change_password.html"
+    success_url = reverse_lazy("stations:manager-list")
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        update_session_auth_hash(self.request, form.user)
+        return response
