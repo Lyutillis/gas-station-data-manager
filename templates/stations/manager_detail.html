@@ -1,0 +1,123 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+  Profile
+{% endblock %}
+
+{% block content %}
+  <main>
+    {% if user.pk == manager.pk %}
+      <!-- Hero -->
+      <div class="section-header bg-primary-app pb-0">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+              <div class="mt-4 mb-5">
+                <h1 class="display-2 fw-normal my-4">{{ manager.username }}</h1>
+                <h4 class="display-4 fw-normal my-4">{{ manager.email }}</h4>
+                <h4 class="display-4 fw-normal my-4">{{ manager.first_name }} {{ manager.last_name }}</h4>
+                <a href="{% url 'stations:change_password' %}" class="btn btn-primary btn-icon">
+                  <span class="me-1"><span class="fas fa-gas-pump"></span></span>
+                  Change password
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Hero section -->
+
+      <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="h6 modal-title">Are you sure?</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>You can`t undo this!</p>
+            </div>
+            <div class="modal-footer">
+              <form method="post" action="{% url 'stations:manager-delete' manager.pk %}">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Delete" />
+              </form>
+              <button type="button" class="btn btn-link ms-auto" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section bg-primary-app pb-3">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="mt-4 mb-5">
+              <h1 class="display-2 fw-normal my-4">Stations</h1>
+            </div>
+            <div class="col-xs-8 col-xs-offset-2 well">
+              <table id="transaction-table" class="table table-scroll table-dark table-hover pb-5">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for station in manager.stations.prefetch_related %}
+                    <tr>
+                      <td>
+                        <a href="{% url 'stations:station-detail' station.pk %}" style="text-decoration:None; color: white;">{{ station.pk }}</a>
+                      </td>
+                      <td>
+                        <img src="/static{{ station.image.url }}" class="card-img-top" style="height: 200; width: 200;" />
+                      </td>
+                      <td>{{ station.address }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-lg bg-primary-app pb-0 my-5">
+        <div class="container d-flex justify-content-center">
+          <div class="btn-group">
+            <a href="{% url 'stations:manager-update' manager.pk %}" class="btn btn-warning btn-icon">
+              <span class="me-1"><span class="fas fa-gas-pump"></span></span>
+              Update
+            </a>
+            <button class="btn btn-danger" aria-label="delete button" data-bs-toggle="modal" data-bs-target="#modal-default" />
+            <span aria-hidden="true" class="fas fa-trash-alt"></span>
+            Delete
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <!-- Hero -->
+      <div class="section-header bg-primary-app pb-0">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+              <div class="mt-4 mb-5">
+                <h1 class="display-2 fw-normal my-4">You can`t overview others` accounts</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </main>
+
+  {% include 'includes/footer.html' %}
+{% endblock %}
+
+<!-- Specific Page JS goes HERE -->
+{% block javascripts %}
+  <script>
+    $(document).on('click', '#delete-item', () => {
+      document.getElementById('item-delete-form').action = document.querySelector('#delete-item').href
+    })
+  </script>
+{% endblock %}

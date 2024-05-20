@@ -1,0 +1,42 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block title %}
+  Delete Discount
+{% endblock %}
+
+<!-- Specific Page CSS goes HERE -->
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+{% include 'includes/navigation.html' %}
+
+
+  <main>
+    <!-- Section -->
+    <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="{{ ASSETS_ROOT }}/img/pages/form-image.jpg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
+              <div class="text-center text-md-center mb-4 mt-md-0">
+                <h1 class="mb-0 h3">Delete this Transaction?</h1>
+                <br />
+                <form action="" method="post">
+                  {% csrf_token %}
+
+                  <input type="submit" value="Yes" class="btn btn-danger" />
+                  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary mx-2">Cancel</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+<!-- Specific Page JS goes HERE -->
+{% block javascripts %}
+{% endblock %}

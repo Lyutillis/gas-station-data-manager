@@ -1,0 +1,1551 @@
+[
+{
+    "model": "stations.manager",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$E65L62iOqjwuGhAqEPtBZT$vVD20cOwJM/80nhyIaxCsa0psYzBhLmfYxnRwsY8Mfs=",
+        "last_login": "2023-11-27T06:06:27.636Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "ad",
+        "last_name": "min",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-11-22T16:16:10.372Z",
+        "email": "admin@admin.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$0TJRNMfD9kwFAh7aeWSx7y$jR+9/3aQt3arnQUkxhAOahtQCpgKU3iKr955S6vvixE=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Manager1",
+        "first_name": "John",
+        "last_name": "Doe",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-24T06:01:40.057Z",
+        "email": "manager1@gmail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$CXTIP8AmQHHAWiDq7rfqsS$LJSuesnraL5r7qwc6LOObYiJ+KCL2zOcCJ/NDp66Ydg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Manager2",
+        "first_name": "George",
+        "last_name": "Pork",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-24T06:01:40.478Z",
+        "email": "manager2@gmail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$LQqNcPUJgrUQelrdRhVFxM$LZFDRhxlOk2fIYMKe2nnBcL2Nip6L2vLgjdNQUvwHuo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Manager3",
+        "first_name": "Joanne",
+        "last_name": "Doe",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-24T06:01:40.892Z",
+        "email": "manager3@gmail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$1fOH6K2i7fKJAJDcU97BJO$M9H/RwatewCNYrVd/MvXsX4+nvfRJs4IGW3LYhPi3DA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Manager4",
+        "first_name": "Ryan",
+        "last_name": "Gosling",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-11-24T06:01:41.335Z",
+        "email": "manager4@gmail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$vnuDLZRLXcrRFh3gaOsloc$XjfTv/4Wz5P+kqK64ykG1+hUmLEEAq2puB2uxLV9iOY=",
+        "last_login": "2023-12-10T11:28:52.475Z",
+        "is_superuser": true,
+        "username": "testadmin",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-12-10T10:25:27.081Z",
+        "email": "admin@test.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$7ntnoSYZsAmJ1UI8JPNjlY$K69PyyOD9ruSJA+fa6GHhnf3jTUAOZ+XHmf2oeUwW6E=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "Sashenka_admin",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-05-11T12:21:04.808Z",
+        "email": "sasha@gmail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.manager",
+    "pk": 13,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Bt8awZ4Y0aZIg1BAeBlQGh$oX6PxsxRVwXUHE+O6UwuSJXQ+4c8oQ60A7b3Pf35yRA=",
+        "last_login": "2024-05-11T12:26:56.581Z",
+        "is_superuser": true,
+        "username": "sasha",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-05-11T12:23:25.742Z",
+        "email": "sasha@mail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "stations.fuel",
+    "pk": 6,
+    "fields": {
+        "name": "A-95+",
+        "price": "57.77"
+    }
+},
+{
+    "model": "stations.fuel",
+    "pk": 7,
+    "fields": {
+        "name": "A-95",
+        "price": "54.62"
+    }
+},
+{
+    "model": "stations.fuel",
+    "pk": 8,
+    "fields": {
+        "name": "A-92",
+        "price": "52.18"
+    }
+},
+{
+    "model": "stations.fuel",
+    "pk": 9,
+    "fields": {
+        "name": "ДП",
+        "price": "54.48"
+    }
+},
+{
+    "model": "stations.fuel",
+    "pk": 10,
+    "fields": {
+        "name": "Газ",
+        "price": "35.91"
+    }
+},
+{
+    "model": "stations.fuel",
+    "pk": 11,
+    "fields": {
+        "name": "Нове Паливо",
+        "price": "150.00"
+    }
+},
+{
+    "model": "stations.station",
+    "pk": 12,
+    "fields": {
+        "address": "Вулиця Валентинівська, 2а, Харків, Харківська область",
+        "image": "station-images/03741b21-8a90-11ee-b07a-1c1b0d73887c.jpg",
+        "managers": [
+            6,
+            7,
+            1
+        ]
+    }
+},
+{
+    "model": "stations.station",
+    "pk": 13,
+    "fields": {
+        "address": "Вулиця Матюшенка, 13, Харків, Харківська область",
+        "image": "station-images/0bc88e77-8a90-11ee-a0c3-1c1b0d73887c.jpg",
+        "managers": [
+            4,
+            5,
+            1
+        ]
+    }
+},
+{
+    "model": "stations.station",
+    "pk": 14,
+    "fields": {
+        "address": "Нова Адреса",
+        "image": "station-images/efbceb90-8a8f-11ee-88fb-1c1b0d73887c.jpg",
+        "managers": [
+            4,
+            6,
+            1
+        ]
+    }
+},
+{
+    "model": "stations.discount",
+    "pk": 3,
+    "fields": {
+        "description": "Manager Discount",
+        "discount": "10.00",
+        "is_active": false
+    }
+},
+{
+    "model": "stations.discount",
+    "pk": 5,
+    "fields": {
+        "description": "Special Offer Discount",
+        "discount": "15.00",
+        "is_active": true
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 11,
+    "fields": {
+        "date": "2023-11-24T06:07:58.246Z",
+        "fuel": 6,
+        "amount": "12.90",
+        "station": 13,
+        "total": "745.23",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 12,
+    "fields": {
+        "date": "2023-11-24T06:07:58.248Z",
+        "fuel": 10,
+        "amount": "27.64",
+        "station": 13,
+        "total": "942.92",
+        "discount": null,
+        "discount_total": "49.63"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 13,
+    "fields": {
+        "date": "2023-11-24T06:07:58.249Z",
+        "fuel": 8,
+        "amount": "16.59",
+        "station": 13,
+        "total": "822.38",
+        "discount": null,
+        "discount_total": "43.28"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 14,
+    "fields": {
+        "date": "2023-11-24T06:07:58.250Z",
+        "fuel": 9,
+        "amount": "16.97",
+        "station": 13,
+        "total": "878.30",
+        "discount": null,
+        "discount_total": "46.23"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 15,
+    "fields": {
+        "date": "2023-11-24T06:07:58.252Z",
+        "fuel": 9,
+        "amount": "14.16",
+        "station": 13,
+        "total": "771.44",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 16,
+    "fields": {
+        "date": "2023-11-24T06:07:58.253Z",
+        "fuel": 8,
+        "amount": "13.55",
+        "station": 14,
+        "total": "600.98",
+        "discount": 5,
+        "discount_total": "106.06"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 17,
+    "fields": {
+        "date": "2023-11-24T06:07:58.254Z",
+        "fuel": 9,
+        "amount": "19.88",
+        "station": 14,
+        "total": "1028.91",
+        "discount": null,
+        "discount_total": "54.15"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 18,
+    "fields": {
+        "date": "2023-11-24T06:07:58.255Z",
+        "fuel": 9,
+        "amount": "24.46",
+        "station": 12,
+        "total": "1332.58",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 19,
+    "fields": {
+        "date": "2023-11-24T06:07:58.255Z",
+        "fuel": 9,
+        "amount": "12.91",
+        "station": 12,
+        "total": "597.84",
+        "discount": 5,
+        "discount_total": "105.50"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 20,
+    "fields": {
+        "date": "2023-11-24T06:07:58.256Z",
+        "fuel": 10,
+        "amount": "26.93",
+        "station": 13,
+        "total": "918.70",
+        "discount": null,
+        "discount_total": "48.35"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 21,
+    "fields": {
+        "date": "2023-11-24T06:07:58.257Z",
+        "fuel": 8,
+        "amount": "9.58",
+        "station": 14,
+        "total": "499.88",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 22,
+    "fields": {
+        "date": "2023-11-24T06:07:58.258Z",
+        "fuel": 7,
+        "amount": "27.71",
+        "station": 12,
+        "total": "1286.49",
+        "discount": 5,
+        "discount_total": "227.03"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 23,
+    "fields": {
+        "date": "2023-11-24T06:07:58.259Z",
+        "fuel": 6,
+        "amount": "15.02",
+        "station": 14,
+        "total": "824.32",
+        "discount": null,
+        "discount_total": "43.39"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 24,
+    "fields": {
+        "date": "2023-11-24T06:07:58.259Z",
+        "fuel": 9,
+        "amount": "7.67",
+        "station": 14,
+        "total": "355.18",
+        "discount": 5,
+        "discount_total": "62.68"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 25,
+    "fields": {
+        "date": "2023-11-24T06:07:58.260Z",
+        "fuel": 10,
+        "amount": "18.24",
+        "station": 14,
+        "total": "655.00",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 26,
+    "fields": {
+        "date": "2023-11-24T06:07:58.261Z",
+        "fuel": 7,
+        "amount": "11.09",
+        "station": 13,
+        "total": "605.74",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 27,
+    "fields": {
+        "date": "2023-11-24T06:07:58.261Z",
+        "fuel": 10,
+        "amount": "9.53",
+        "station": 14,
+        "total": "325.11",
+        "discount": null,
+        "discount_total": "17.11"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 28,
+    "fields": {
+        "date": "2023-11-24T06:07:58.262Z",
+        "fuel": 9,
+        "amount": "27.08",
+        "station": 14,
+        "total": "1475.32",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 29,
+    "fields": {
+        "date": "2023-11-24T06:07:58.262Z",
+        "fuel": 8,
+        "amount": "20.19",
+        "station": 12,
+        "total": "1053.51",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 30,
+    "fields": {
+        "date": "2023-11-24T06:07:58.263Z",
+        "fuel": 8,
+        "amount": "8.92",
+        "station": 14,
+        "total": "395.63",
+        "discount": 5,
+        "discount_total": "69.82"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 31,
+    "fields": {
+        "date": "2023-11-24T06:07:58.264Z",
+        "fuel": 9,
+        "amount": "16.84",
+        "station": 13,
+        "total": "871.57",
+        "discount": null,
+        "discount_total": "45.87"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 32,
+    "fields": {
+        "date": "2023-11-24T06:07:58.264Z",
+        "fuel": 10,
+        "amount": "19.20",
+        "station": 12,
+        "total": "689.47",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 33,
+    "fields": {
+        "date": "2023-11-24T06:07:58.265Z",
+        "fuel": 9,
+        "amount": "7.67",
+        "station": 14,
+        "total": "396.97",
+        "discount": null,
+        "discount_total": "20.89"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 34,
+    "fields": {
+        "date": "2023-11-24T06:07:58.265Z",
+        "fuel": 8,
+        "amount": "14.01",
+        "station": 13,
+        "total": "731.04",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 35,
+    "fields": {
+        "date": "2023-11-24T06:07:58.266Z",
+        "fuel": 10,
+        "amount": "28.77",
+        "station": 14,
+        "total": "981.47",
+        "discount": null,
+        "discount_total": "51.66"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 36,
+    "fields": {
+        "date": "2023-11-24T06:07:58.267Z",
+        "fuel": 9,
+        "amount": "18.02",
+        "station": 12,
+        "total": "981.73",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 37,
+    "fields": {
+        "date": "2023-11-24T06:07:58.268Z",
+        "fuel": 9,
+        "amount": "17.86",
+        "station": 12,
+        "total": "924.36",
+        "discount": null,
+        "discount_total": "48.65"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 38,
+    "fields": {
+        "date": "2023-11-24T06:07:58.269Z",
+        "fuel": 8,
+        "amount": "20.93",
+        "station": 12,
+        "total": "928.31",
+        "discount": 5,
+        "discount_total": "163.82"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 39,
+    "fields": {
+        "date": "2023-11-24T06:07:58.270Z",
+        "fuel": 7,
+        "amount": "7.50",
+        "station": 12,
+        "total": "389.17",
+        "discount": null,
+        "discount_total": "20.48"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 40,
+    "fields": {
+        "date": "2023-11-24T06:07:58.270Z",
+        "fuel": 7,
+        "amount": "15.98",
+        "station": 12,
+        "total": "741.90",
+        "discount": 5,
+        "discount_total": "130.92"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 41,
+    "fields": {
+        "date": "2023-11-24T06:07:58.271Z",
+        "fuel": 7,
+        "amount": "13.04",
+        "station": 13,
+        "total": "712.24",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 42,
+    "fields": {
+        "date": "2023-11-24T06:07:58.271Z",
+        "fuel": 9,
+        "amount": "15.73",
+        "station": 13,
+        "total": "814.12",
+        "discount": null,
+        "discount_total": "42.85"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 43,
+    "fields": {
+        "date": "2023-11-24T06:07:58.272Z",
+        "fuel": 10,
+        "amount": "20.78",
+        "station": 13,
+        "total": "634.28",
+        "discount": 5,
+        "discount_total": "111.93"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 44,
+    "fields": {
+        "date": "2023-11-24T06:07:58.272Z",
+        "fuel": 6,
+        "amount": "6.16",
+        "station": 13,
+        "total": "355.86",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 45,
+    "fields": {
+        "date": "2023-11-24T06:07:58.273Z",
+        "fuel": 8,
+        "amount": "26.90",
+        "station": 14,
+        "total": "1333.46",
+        "discount": null,
+        "discount_total": "70.18"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 46,
+    "fields": {
+        "date": "2023-11-24T06:07:58.273Z",
+        "fuel": 10,
+        "amount": "27.49",
+        "station": 13,
+        "total": "839.09",
+        "discount": 5,
+        "discount_total": "148.07"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 47,
+    "fields": {
+        "date": "2023-11-24T06:07:58.274Z",
+        "fuel": 7,
+        "amount": "17.09",
+        "station": 14,
+        "total": "933.46",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 48,
+    "fields": {
+        "date": "2023-11-24T06:07:58.275Z",
+        "fuel": 9,
+        "amount": "6.51",
+        "station": 13,
+        "total": "301.47",
+        "discount": 5,
+        "discount_total": "53.20"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 49,
+    "fields": {
+        "date": "2023-11-24T06:07:58.275Z",
+        "fuel": 9,
+        "amount": "28.98",
+        "station": 12,
+        "total": "1578.83",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 50,
+    "fields": {
+        "date": "2023-11-24T06:07:58.276Z",
+        "fuel": 6,
+        "amount": "6.88",
+        "station": 13,
+        "total": "337.84",
+        "discount": 5,
+        "discount_total": "59.62"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 51,
+    "fields": {
+        "date": "2023-11-24T06:07:58.277Z",
+        "fuel": 9,
+        "amount": "9.88",
+        "station": 14,
+        "total": "457.52",
+        "discount": 5,
+        "discount_total": "80.74"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 52,
+    "fields": {
+        "date": "2023-11-24T06:07:58.277Z",
+        "fuel": 10,
+        "amount": "11.11",
+        "station": 12,
+        "total": "398.96",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 53,
+    "fields": {
+        "date": "2023-11-24T06:07:58.278Z",
+        "fuel": 10,
+        "amount": "20.86",
+        "station": 12,
+        "total": "749.08",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 54,
+    "fields": {
+        "date": "2023-11-24T06:07:58.278Z",
+        "fuel": 9,
+        "amount": "19.47",
+        "station": 12,
+        "total": "1060.73",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 55,
+    "fields": {
+        "date": "2023-11-24T06:07:58.279Z",
+        "fuel": 10,
+        "amount": "10.67",
+        "station": 14,
+        "total": "364.00",
+        "discount": null,
+        "discount_total": "19.16"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 56,
+    "fields": {
+        "date": "2023-11-24T06:07:58.279Z",
+        "fuel": 9,
+        "amount": "28.36",
+        "station": 12,
+        "total": "1545.05",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 57,
+    "fields": {
+        "date": "2023-11-24T06:07:58.280Z",
+        "fuel": 7,
+        "amount": "29.47",
+        "station": 13,
+        "total": "1609.65",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 58,
+    "fields": {
+        "date": "2023-11-24T06:07:58.280Z",
+        "fuel": 9,
+        "amount": "12.33",
+        "station": 14,
+        "total": "671.74",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 59,
+    "fields": {
+        "date": "2023-11-24T06:07:58.281Z",
+        "fuel": 10,
+        "amount": "22.94",
+        "station": 12,
+        "total": "782.59",
+        "discount": null,
+        "discount_total": "41.19"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 60,
+    "fields": {
+        "date": "2023-11-24T06:07:58.281Z",
+        "fuel": 10,
+        "amount": "14.64",
+        "station": 14,
+        "total": "446.86",
+        "discount": 5,
+        "discount_total": "78.86"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 61,
+    "fields": {
+        "date": "2023-11-24T06:07:59.674Z",
+        "fuel": 10,
+        "amount": "7.05",
+        "station": 12,
+        "total": "240.51",
+        "discount": null,
+        "discount_total": "12.66"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 62,
+    "fields": {
+        "date": "2023-11-24T06:07:59.676Z",
+        "fuel": 7,
+        "amount": "13.26",
+        "station": 14,
+        "total": "688.05",
+        "discount": null,
+        "discount_total": "36.21"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 63,
+    "fields": {
+        "date": "2023-11-24T06:07:59.677Z",
+        "fuel": 7,
+        "amount": "23.13",
+        "station": 12,
+        "total": "1263.36",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 64,
+    "fields": {
+        "date": "2023-11-24T06:07:59.678Z",
+        "fuel": 6,
+        "amount": "16.34",
+        "station": 14,
+        "total": "896.76",
+        "discount": null,
+        "discount_total": "47.20"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 65,
+    "fields": {
+        "date": "2023-11-24T06:07:59.678Z",
+        "fuel": 6,
+        "amount": "11.12",
+        "station": 13,
+        "total": "642.40",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 66,
+    "fields": {
+        "date": "2023-11-24T06:07:59.679Z",
+        "fuel": 8,
+        "amount": "25.04",
+        "station": 13,
+        "total": "1110.60",
+        "discount": 5,
+        "discount_total": "195.99"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 67,
+    "fields": {
+        "date": "2023-11-24T06:07:59.680Z",
+        "fuel": 7,
+        "amount": "13.28",
+        "station": 13,
+        "total": "725.35",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 68,
+    "fields": {
+        "date": "2023-11-24T06:07:59.680Z",
+        "fuel": 7,
+        "amount": "11.46",
+        "station": 12,
+        "total": "594.65",
+        "discount": null,
+        "discount_total": "31.30"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 69,
+    "fields": {
+        "date": "2023-11-24T06:07:59.681Z",
+        "fuel": 9,
+        "amount": "19.61",
+        "station": 13,
+        "total": "1014.94",
+        "discount": null,
+        "discount_total": "53.42"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 70,
+    "fields": {
+        "date": "2023-11-24T06:07:59.682Z",
+        "fuel": 7,
+        "amount": "24.92",
+        "station": 14,
+        "total": "1361.13",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 71,
+    "fields": {
+        "date": "2023-11-24T06:07:59.682Z",
+        "fuel": 10,
+        "amount": "18.97",
+        "station": 13,
+        "total": "579.03",
+        "discount": 5,
+        "discount_total": "102.18"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 72,
+    "fields": {
+        "date": "2023-11-24T06:07:59.683Z",
+        "fuel": 8,
+        "amount": "19.42",
+        "station": 13,
+        "total": "861.34",
+        "discount": 5,
+        "discount_total": "152.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 73,
+    "fields": {
+        "date": "2023-11-24T06:07:59.683Z",
+        "fuel": 7,
+        "amount": "21.55",
+        "station": 12,
+        "total": "1118.21",
+        "discount": null,
+        "discount_total": "58.85"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 74,
+    "fields": {
+        "date": "2023-11-24T06:07:59.686Z",
+        "fuel": 9,
+        "amount": "23.81",
+        "station": 14,
+        "total": "1102.59",
+        "discount": 5,
+        "discount_total": "194.58"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 75,
+    "fields": {
+        "date": "2023-11-24T06:07:59.687Z",
+        "fuel": 9,
+        "amount": "17.89",
+        "station": 14,
+        "total": "974.65",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 76,
+    "fields": {
+        "date": "2023-11-24T06:07:59.687Z",
+        "fuel": 10,
+        "amount": "27.41",
+        "station": 14,
+        "total": "935.08",
+        "discount": null,
+        "discount_total": "49.21"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 77,
+    "fields": {
+        "date": "2023-11-24T06:07:59.688Z",
+        "fuel": 6,
+        "amount": "27.38",
+        "station": 12,
+        "total": "1502.66",
+        "discount": null,
+        "discount_total": "79.09"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 78,
+    "fields": {
+        "date": "2023-11-24T06:07:59.689Z",
+        "fuel": 9,
+        "amount": "29.05",
+        "station": 12,
+        "total": "1345.25",
+        "discount": 5,
+        "discount_total": "237.40"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 79,
+    "fields": {
+        "date": "2023-11-24T06:07:59.690Z",
+        "fuel": 6,
+        "amount": "23.34",
+        "station": 12,
+        "total": "1146.10",
+        "discount": 5,
+        "discount_total": "202.25"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 80,
+    "fields": {
+        "date": "2023-11-24T06:07:59.691Z",
+        "fuel": 6,
+        "amount": "23.22",
+        "station": 12,
+        "total": "1274.35",
+        "discount": null,
+        "discount_total": "67.07"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 81,
+    "fields": {
+        "date": "2023-11-24T06:07:59.691Z",
+        "fuel": 7,
+        "amount": "15.50",
+        "station": 12,
+        "total": "804.28",
+        "discount": null,
+        "discount_total": "42.33"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 82,
+    "fields": {
+        "date": "2023-11-24T06:07:59.692Z",
+        "fuel": 9,
+        "amount": "8.77",
+        "station": 13,
+        "total": "477.79",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 83,
+    "fields": {
+        "date": "2023-11-24T06:07:59.693Z",
+        "fuel": 9,
+        "amount": "15.97",
+        "station": 14,
+        "total": "870.05",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 84,
+    "fields": {
+        "date": "2023-11-24T06:07:59.693Z",
+        "fuel": 7,
+        "amount": "8.97",
+        "station": 13,
+        "total": "489.94",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 85,
+    "fields": {
+        "date": "2023-11-24T06:07:59.694Z",
+        "fuel": 8,
+        "amount": "8.59",
+        "station": 12,
+        "total": "425.81",
+        "discount": null,
+        "discount_total": "22.41"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 86,
+    "fields": {
+        "date": "2023-11-24T06:07:59.695Z",
+        "fuel": 9,
+        "amount": "8.96",
+        "station": 14,
+        "total": "463.73",
+        "discount": null,
+        "discount_total": "24.41"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 87,
+    "fields": {
+        "date": "2023-11-24T06:07:59.695Z",
+        "fuel": 9,
+        "amount": "17.07",
+        "station": 12,
+        "total": "929.97",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 88,
+    "fields": {
+        "date": "2023-11-24T06:07:59.696Z",
+        "fuel": 9,
+        "amount": "22.41",
+        "station": 13,
+        "total": "1220.90",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 89,
+    "fields": {
+        "date": "2023-11-24T06:07:59.696Z",
+        "fuel": 9,
+        "amount": "24.89",
+        "station": 14,
+        "total": "1152.61",
+        "discount": 5,
+        "discount_total": "203.40"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 90,
+    "fields": {
+        "date": "2023-11-24T06:07:59.697Z",
+        "fuel": 10,
+        "amount": "15.89",
+        "station": 14,
+        "total": "570.61",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 91,
+    "fields": {
+        "date": "2023-11-24T06:07:59.698Z",
+        "fuel": 9,
+        "amount": "28.39",
+        "station": 12,
+        "total": "1469.35",
+        "discount": null,
+        "discount_total": "77.33"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 92,
+    "fields": {
+        "date": "2023-11-24T06:07:59.698Z",
+        "fuel": 10,
+        "amount": "7.86",
+        "station": 14,
+        "total": "268.14",
+        "discount": null,
+        "discount_total": "14.11"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 93,
+    "fields": {
+        "date": "2023-11-24T06:07:59.699Z",
+        "fuel": 7,
+        "amount": "12.88",
+        "station": 12,
+        "total": "668.33",
+        "discount": null,
+        "discount_total": "35.18"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 94,
+    "fields": {
+        "date": "2023-11-24T06:07:59.700Z",
+        "fuel": 8,
+        "amount": "9.76",
+        "station": 14,
+        "total": "483.81",
+        "discount": null,
+        "discount_total": "25.46"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 95,
+    "fields": {
+        "date": "2023-11-24T06:07:59.700Z",
+        "fuel": 10,
+        "amount": "18.33",
+        "station": 12,
+        "total": "658.23",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 96,
+    "fields": {
+        "date": "2023-11-24T06:07:59.701Z",
+        "fuel": 9,
+        "amount": "11.42",
+        "station": 13,
+        "total": "591.05",
+        "discount": null,
+        "discount_total": "31.11"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 97,
+    "fields": {
+        "date": "2023-11-24T06:07:59.702Z",
+        "fuel": 6,
+        "amount": "29.05",
+        "station": 12,
+        "total": "1678.22",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 98,
+    "fields": {
+        "date": "2023-11-24T06:07:59.703Z",
+        "fuel": 6,
+        "amount": "9.80",
+        "station": 13,
+        "total": "566.15",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 99,
+    "fields": {
+        "date": "2023-11-24T06:07:59.704Z",
+        "fuel": 7,
+        "amount": "28.44",
+        "station": 13,
+        "total": "1475.72",
+        "discount": null,
+        "discount_total": "77.67"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 100,
+    "fields": {
+        "date": "2023-11-24T06:07:59.704Z",
+        "fuel": 10,
+        "amount": "10.83",
+        "station": 13,
+        "total": "388.91",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 101,
+    "fields": {
+        "date": "2023-11-24T06:07:59.705Z",
+        "fuel": 9,
+        "amount": "14.63",
+        "station": 14,
+        "total": "677.49",
+        "discount": 5,
+        "discount_total": "119.56"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 102,
+    "fields": {
+        "date": "2023-11-24T06:07:59.706Z",
+        "fuel": 7,
+        "amount": "10.80",
+        "station": 14,
+        "total": "560.40",
+        "discount": null,
+        "discount_total": "29.49"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 103,
+    "fields": {
+        "date": "2023-11-24T06:07:59.706Z",
+        "fuel": 8,
+        "amount": "5.51",
+        "station": 14,
+        "total": "287.51",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 104,
+    "fields": {
+        "date": "2023-11-24T06:07:59.707Z",
+        "fuel": 10,
+        "amount": "22.93",
+        "station": 12,
+        "total": "699.90",
+        "discount": 5,
+        "discount_total": "123.51"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 105,
+    "fields": {
+        "date": "2023-11-24T06:07:59.707Z",
+        "fuel": 9,
+        "amount": "10.65",
+        "station": 14,
+        "total": "580.21",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 106,
+    "fields": {
+        "date": "2023-11-24T06:07:59.708Z",
+        "fuel": 8,
+        "amount": "11.66",
+        "station": 12,
+        "total": "608.42",
+        "discount": 3,
+        "discount_total": "0.00"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 107,
+    "fields": {
+        "date": "2023-11-24T06:07:59.709Z",
+        "fuel": 8,
+        "amount": "12.74",
+        "station": 13,
+        "total": "565.06",
+        "discount": 5,
+        "discount_total": "99.72"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 108,
+    "fields": {
+        "date": "2023-11-24T06:07:59.710Z",
+        "fuel": 7,
+        "amount": "19.61",
+        "station": 13,
+        "total": "1017.54",
+        "discount": null,
+        "discount_total": "53.55"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 109,
+    "fields": {
+        "date": "2023-11-24T06:07:59.710Z",
+        "fuel": 10,
+        "amount": "10.26",
+        "station": 13,
+        "total": "350.01",
+        "discount": null,
+        "discount_total": "18.42"
+    }
+},
+{
+    "model": "stations.transaction",
+    "pk": 110,
+    "fields": {
+        "date": "2023-11-24T06:07:59.711Z",
+        "fuel": 6,
+        "amount": "5.17",
+        "station": 14,
+        "total": "283.74",
+        "discount": null,
+        "discount_total": "14.93"
+    }
+}
+]
